@@ -1,0 +1,27 @@
+<div class="game-form-container">
+    <form class="game-form-content" fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="12px" [formGroup]="gameForm" (ngSubmit)="onSubmit()" #formDirective="ngForm">
+        <mat-form-field>
+            <input type="number" name="jumps" matInput placeholder="Enter length of jump" [formControlName]="'jumps'" appNumbersOnly>
+            <mat-error *ngIf="gameForm.get('jumps').invalid && gameForm.get('jumps').touched && gameForm.get('jumps').errors.required">Jump size must be entered.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" name="elements" matInput placeholder="Enter the binary array" [formControlName]="'elements'" appBooleanOnly>
+            <mat-error *ngIf="gameForm.get('elements').invalid && gameForm.get('elements').touched && gameForm.get('elements').errors.required">Array must be entered.</mat-error>
+            <mat-error *ngIf="gameForm.get('elements').invalid && gameForm.get('elements').touched && gameForm.get('elements').errors.elementsAreInvalid">Array must begin with 0 and should contain only 0 and 1</mat-error>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="displayResults">
+          <mat-chip-list fxLayoutAlign="center center">
+            <mat-chip *ngIf="win" color="accent" selected>Yes, You can win.</mat-chip>
+            <mat-chip *ngIf="!win" color="warn" selected>No, You can't win.</mat-chip>
+          </mat-chip-list>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutGap="24px">
+          <button type="submit" mat-raised-button color="accent" [disabled]="gameForm.invalid"> Evaluate </button>
+          <button type="button" mat-raised-button color="primary" (click)="onReset(formDirective)"> Reset </button>
+        </div>
+
+    </form>
+</div>

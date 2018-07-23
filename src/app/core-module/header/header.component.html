@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+
+  <div class="header-logo-section">
+      <button mat-icon-button (click)="onLogoClick()">
+          <mat-icon>games</mat-icon>
+      </button>
+  </div>
+
+  <div class="header-menulist-section" fxFlex fxLayout fxLayoutAlign="flex-end">
+      <ul class="navigation-list" fxLayout>
+          <li class="navigation-list-item"><a [routerLink]="['/welcome']"> Home </a></li>
+          <li class="navigation-list-item"><a [routerLink]="['/game']"> Play </a></li>
+      </ul>
+  </div>
+
+</mat-toolbar>

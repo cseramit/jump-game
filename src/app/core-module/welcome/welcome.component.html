@@ -1,0 +1,16 @@
+<section fxLayout fxLayoutAlign="center">
+      <mat-card fxFlex.xs="100%" fxFlex="400px" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="24px">
+          <mat-card-title> Welcome to Jump Game !</mat-card-title>
+          <mat-card-content>
+            <p>
+              This is a fun game. You will have to enter the jump length and an array of 0 and 1 starting with 0.
+            </p>
+            <p>
+              The game will evaluate the input and let you know if you can reach past the end of array to win the game bound by the rules of the game.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+              <button type="button" mat-raised-button color="accent" [routerLink]="['/game']">Play Now</button>
+          </mat-card-actions>
+      </mat-card>
+</section>
